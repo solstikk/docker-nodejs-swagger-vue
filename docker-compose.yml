@@ -1,0 +1,8 @@
+version: '2'
+services:
+  lemur:
+    image: lemur:develop
+    container_name: lemur
+    build: .
+    ports:
+      - "8080:8080"

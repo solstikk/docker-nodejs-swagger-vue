@@ -1,0 +1,7 @@
+version: '2'
+services:
+  lemur:
+    volumes:
+      - ./app:/usr/app
+    command:
+      - dev

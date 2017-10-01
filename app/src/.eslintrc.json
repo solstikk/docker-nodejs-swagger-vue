@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "no-console": "error"
+  },
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "Vue": false,
+    "VueMaterial": false
+  }
+}
