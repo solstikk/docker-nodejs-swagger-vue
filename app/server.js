@@ -13,7 +13,7 @@ app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
 }));
 app.use(webpackHotMiddleware(compiler));
-app.use(express.static(path.join(__dirname, './app/static')));
+app.use(express.static(path.join(__dirname, './static')));
 app.listen(8080, () => {
   console.log('Example app listening on port 8080!\n');
 });
