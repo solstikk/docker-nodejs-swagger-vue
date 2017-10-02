@@ -2,7 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './app/src/main.js',
+  entry: [
+    'webpack-hot-middleware/client',
+    './app/src/main.js',
+  ],
   output: {
     path: path.resolve(__dirname, './app/static/bundle'),
     publicPath: '/bundle/',
@@ -37,12 +40,6 @@ module.exports = {
       vue$: 'vue/dist/vue.esm.js',
     },
   },
-  devServer: {
-    host: '0.0.0.0',
-    contentBase: './app/static',
-    historyApiFallback: true,
-    noInfo: true,
-  },
   performance: {
     hints: false,
   },
@@ -67,5 +64,9 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true,
     }),
+  ]);
+} else {
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.HotModuleReplacementPlugin(),
   ]);
 }
