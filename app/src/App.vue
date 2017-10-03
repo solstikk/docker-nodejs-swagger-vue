@@ -4,12 +4,19 @@
 
 <script>
 import Message from './components/Message.vue';
+import axios from 'axios';
+
 export default {
   components: { Message },
-  data () {
+  data() {
     return {
-      message: "Hello!"
+      message: ""
     }
+  },
+  mounted() {
+    axios.get('/echo/v1?message=Hello!').then(
+      response => this.message = response.data.message
+    )
   }
 }
 </script>
