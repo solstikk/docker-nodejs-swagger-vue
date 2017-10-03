@@ -1,0 +1,53 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "An API",
+    "description": "API for something.",
+    "version": "0.1.0"
+  },
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/echo/v1": {
+      "x-swagger-router-controller": "echo",
+      "get": {
+        "description": "Echo back the message in an object.",
+        "parameters": [
+          {
+            "name": "message",
+            "in": "query",
+            "description": "The message to be echoed.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An object with text.",
+            "schema": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": ["message"],
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/responses/Error"
+          }
+        }
+      }
+    }
+  },
+  "responses": {
+    "Error": {
+      "description": "Invalid request.",
+      "schema": {
+        "type": "string"
+      }
+    }
+  }
+}
