@@ -1,0 +1,10 @@
+{
+  "legacyWatch": true,
+  "watch": [
+    "app/"
+  ],
+  "ignore": [
+    "app/src/",
+    "app/static/"
+  ]
+}
