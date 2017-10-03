@@ -6,6 +6,7 @@ COPY ./package-lock.json /usr
 RUN npm install --silent
 COPY . /usr
 RUN npm run lint
+RUN npm run build
 EXPOSE 8080
 ENTRYPOINT ["npm", "run"]
 CMD ["start"]

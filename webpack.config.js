@@ -3,7 +3,6 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'webpack-hot-middleware/client',
     './app/src/main.js',
   ],
   output: {
@@ -43,7 +42,6 @@ module.exports = {
   performance: {
     hints: false,
   },
-  devtool: '#eval-source-map',
 };
 
 if (process.env.NODE_ENV === 'production') {
@@ -65,6 +63,10 @@ if (process.env.NODE_ENV === 'production') {
     }),
   ]);
 } else {
+  module.exports.entry = (module.exports.entry || []).concat([
+    'webpack-hot-middleware/client',
+  ]);
+  module.exports.devtool = '#eval-source-map';
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.HotModuleReplacementPlugin(),
   ]);
