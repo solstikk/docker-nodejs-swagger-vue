@@ -1,9 +1,10 @@
 A repo to start from when developing a service using:
-* Webpack - Building web assets & hot reloading for development
-* Node.js - Web Server
-* Nodemon - Autorestart
-* ESLint - Linting
+* Vue.js - Frontend framework
 * Swagger - API design
+* Node.js - Web Server
+* ESLint - Linting
+* Nodemon - Autorestart for development
+* Webpack - Building web assets & hot reloading for development
 * Docker - Containerization
 * Docker Compose - Building and development
 
